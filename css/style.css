@@ -1,3 +1,6 @@
+/* This has used of the logo animation
+where the width changes from 25px to 475px
+and opacity changes from 0 to 1*/
 @keyframes logoAnimation {
 
     from {
@@ -11,65 +14,80 @@
     }
   }
 
+/*This is for the logo animation when
+the user has not chosen reduced motion*/
   @media (prefers-reduced-motion: no-preference) {
     #logo {
       animation: logoAnimation 5s;
     }
   }
 
+/*This is for setting the body properties| Fonts, background image and color*/
   body {
-    font-family: 'Poppins', serif;
-    background-image: url('concrete_seamless.png'), none;
     background-color: #f1f1f1;
+    font-family: 'Poppins', serif;
+    
+    background-image: url('concrete_seamless.png'), none;
+    
   }
 
+/*This is for setting the header properties*/
   header {
     display: flex;
+
     flex-direction: column;
     align-items: center;
   }
 
+/*This sets the navigation links to appear in a column*/
   .nav_links {
     display: flex;
     flex-direction: column;
   }
 
+/*This lets the property of the links to not change color when visited*/
   a:link, a:visited {
     color: #0011fc;
   }
 
+/*This sets the properties for the header cards*/
   .card > header {
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
     background: #288088;
     border: 2px solid #45ADAD;
     padding: 20px 0;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-  }
-
+    }
+/*This sets the default properties for the cards*/
   .card {
-    flex-basis: 450px;
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
+    flex-basis: 450px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 
+/*Sets the display properties for the pricing on the cards*/
   .pricing {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
   }
-
+/*Sets the display properties for the gallery*/
   .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
 
+/*Sets the properties for the images in the gallery set up above*/
   .gallery>img {
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
   }
 
+/*This is for setting the properties specific for a display of minimum width of 900px*/
   @media screen and (min-width: 900px) {
     header, .nav_links {
       display: flex;
@@ -85,27 +103,27 @@
         padding-top: 0;
         align-items: center;
       }
-
+/*This sets the width of each card to be fixed*/
       .card {
         flex: 0 0 275px;
         margin: 10px;
         padding-top: 0;
       }
-
+/*This is used to define the header to be stuck on top*/
       body > header {
         position: sticky;
         top: 0;
         z-index: 999;
       }
     }
-
+/*This is used to disable the logo animation when the reduced motion has been set*/
     @media all and (prefers-reduced-motion: reduce) {
         #logo {
           animation: none;
         }
       }
-
-      @media print {
+/*This is used to set the properties for when the page is printed*/
+    @media print {
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-image: none;
@@ -124,6 +142,7 @@
           .pricing {
             align-items: flex-end;
             flex-flow: row nowrap;
+            margin-bottom: 200px;
           }
 
           .card {
@@ -134,11 +153,12 @@
           .gallery, #gallery {
             display: none;
           }
-
+/*This has been set up to make the thumbsup emoji to appear*/
           .pricing li:nth-child(2)::after {
             content: "\1F44D";
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
-            margin-left: 10px;
+            margin-left: 0px;
           }
+
         }
